@@ -79,6 +79,9 @@
       <plugin
         filename="ignition-gazebo-diff-drive-system"
         name="ignition::gazebo::systems::DiffDrive">
+        <tf_topic>model/next/tf</tf_topic>
+        <frame_id>next/odom</frame_id>
+        <child_frame_id>next</child_frame_id>
         <left_joint>wheel_left_joint</left_joint>
         <right_joint>wheel_right_joint</right_joint>
         <wheel_separation>0.174</wheel_separation>

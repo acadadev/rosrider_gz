@@ -71,11 +71,20 @@ def generate_launch_description():
         arguments=['0', '0', '0', '0', '0', '0', 'next/imu_link', 'next/imu_link/imu_sensor']
     )
 
+    ekf_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[os.path.join(pkg_project_bringup, 'config', 'ekf_sim.yaml')],
+    )
+
     return LaunchDescription([
         gz_sim,
         DeclareLaunchArgument('rviz', default_value='true', description='Open RVIZ'),
         bridge,
         robot_state_publisher,
         transform,
+        ekf_node,
         rviz
     ])

@@ -43,6 +43,8 @@
           </mesh>
         </geometry>
       </visual>
+      <gravity>1</gravity>
+      <kinematic>0</kinematic>
     </link>
 
     <joint name="wheel_left_joint" type="revolute">
@@ -108,6 +110,8 @@
           </mesh>
         </geometry>
       </visual>
+      <gravity>1</gravity>
+      <kinematic>0</kinematic>
     </link>
 
     <joint name="wheel_right_joint" type="revolute">
@@ -173,6 +177,8 @@
           </mesh>
         </geometry>
       </visual>
+      <gravity>1</gravity>
+      <kinematic>0</kinematic>
     </link>
 
     <joint name="wheel_steering_joint" type="revolute">
@@ -264,6 +270,9 @@
           </mesh>
         </geometry>
       </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <kinematic>0</kinematic>
     </link>
 
     <joint name="scan_joint" type="fixed">
@@ -333,14 +342,11 @@
           </lidar>
           <visualize>true</visualize>
       </sensor>
+      <gravity>1</gravity>
+      <kinematic>0</kinematic>
       <!-- TODO set range-->
-      <!-- TODO get surfaces and frictions from rosrider_gazebo, although this one is working nice -->
       <!-- TODO: then move on to checking inertias -->
-      <!-- TODO: verify battery 0.43kg -->
       <!-- TODO: imu ENU, ZED, check -->
-      <!-- TODO: 1ST add ekf, proceed with ekf_sim -->
-      <!-- TODO: both odom : encoder | world and imu had orientation problems, experiment and check they are fixed -->
-      <!-- TODO: diff drive plugin source, investigate reverse bug -->
     </link>
 
     <joint name="imu_joint" type="fixed">
@@ -385,6 +391,8 @@
             <visualize>true</visualize>
             <topic>/imu</topic>
       </sensor>
+      <gravity>1</gravity>
+      <kinematic>0</kinematic>
     </link>
 
     <joint name="battery_joint" type="fixed">
@@ -427,6 +435,8 @@
           </script>
         </material>
       </visual>
+      <gravity>1</gravity>
+      <kinematic>0</kinematic>
     </link>
 
   </model>
