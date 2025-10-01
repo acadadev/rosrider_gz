@@ -26,7 +26,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
             launch_arguments={
-                'gz_args': f'-r {os.path.join(pkg_project_gazebo, "worlds", "world_ekf.sdf")}'
+                'gz_args': f'-r {os.path.join(pkg_project_gazebo, "worlds", "world_willow.sdf")}'
         }.items(),
     )
 
@@ -38,8 +38,7 @@ def generate_launch_description():
         parameters=[
             {'use_sim_time': True },
             {'robot_description': robot_description},
-            {'frame_prefix': ''},
-            {'publish_frequency': 20.0}
+            {'frame_prefix': ''}
         ]
     )
 
@@ -58,23 +57,6 @@ def generate_launch_description():
             'qos_overrides./tf_static.publisher.durability': 'transient_local'
         }],
         output='screen'
-    )
-
-    lidar_static_transform = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='lidar_static_transform',
-        parameters=[{'use_sim_time': True}],
-        arguments=[
-            '--x', '-0.1692',
-            '--y', '0',
-            '--z', '0.06125',
-            '--roll', '0',
-            '--pitch', '0',
-            '--yaw', '0',
-            '--frame-id', 'base_link',
-            '--child-frame-id', 'base_scan'
-        ]
     )
 
     ekf_node = Node(
@@ -97,6 +79,23 @@ def generate_launch_description():
                     {os.path.join(pkg_project_bringup, 'config', 'ukf_gazebo.yaml')},
                     {'use_sim_time': True }
                    ]
+    )
+
+    lidar_static_transform = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='lidar_static_transform',
+        parameters=[{'use_sim_time': True}],
+        arguments=[
+            '--x', '-0.1692',
+            '--y', '0',
+            '--z', '0.06125',
+            '--roll', '0',
+            '--pitch', '0',
+            '--yaw', '0',
+            '--frame-id', 'base_link',
+            '--child-frame-id', 'base_scan'
+        ]
     )
 
     return LaunchDescription([

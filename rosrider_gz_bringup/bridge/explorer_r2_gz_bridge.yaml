@@ -30,16 +30,12 @@
   direction: GZ_TO_ROS
 
 #- ros_topic_name: "/tf"
-#  gz_topic_name: "/model/explorer_r2/pose"
+#  gz_topic_name: "/model/explorer_r2/encoder_pose"
 #  ros_type_name: "tf2_msgs/msg/TFMessage"
 #  gz_type_name: "gz.msgs.Pose_V"
 #  direction: GZ_TO_ROS
 
-#- ros_topic_name: "/tf_static"
-#  gz_topic_name: "/model/explorer_r2/pose_static"
-#  ros_type_name: "tf2_msgs/msg/TFMessage"
-#  gz_type_name: "gz.msgs.Pose_V"
-#  direction: GZ_TO_ROS
+# notice: we do not use /tf_static as all tf data will be published by robot_state_publisher
 
 - ros_topic_name: "/imu/data"
   gz_topic_name: "/world/world_moon/model/explorer_r2/link/base_link/sensor/imu_sensor/imu"
