@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <sdf version="1.7">
     <model name="csiro_data61">
+
       <self_collide>false</self_collide>
 
       <include merge="true">
@@ -16,26 +17,24 @@
         <debug>0</debug>
       </plugin>
 
-      <plugin
-        filename="gz-sim-joint-state-publisher-system"
-        name="gz::sim::systems::JointStatePublisher">
-      </plugin>
+      <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher"/>
 
-      <plugin
-        filename="gz-sim-pose-publisher-system"
-        name="gz::sim::systems::PosePublisher">
+      <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher">
         <publish_link_pose>true</publish_link_pose>
         <use_pose_vector_msg>true</use_pose_vector_msg>
         <static_publisher>true</static_publisher>
         <static_update_frequency>1</static_update_frequency>
       </plugin>
 
-      <plugin
-        filename="gz-sim-odometry-publisher-system"
-        name="gz::sim::systems::OdometryPublisher">
-        <odom_frame>csiro_data61/odom</odom_frame>
+      <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+        <odom_frame>odom</odom_frame>
         <robot_base_frame>csiro_data61</robot_base_frame>
+        <tf_topic>model/csiro_data61/world_pose</tf_topic>
+        <odom_topic>model/csiro_data61/world_odometry</odom_topic>
+        <odom_covariance_topic>model/csiro_data61/world_odometry_with_covariance</odom_covariance_topic>
       </plugin>
+
+      <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
 
     </model>
 </sdf>
