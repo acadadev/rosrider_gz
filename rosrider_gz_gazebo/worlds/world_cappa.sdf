@@ -44,14 +44,15 @@
           <pose>0 0 0 0 0 0</pose>
           <static>true</static>
           <include merge="true">
-            <uri>package://rosrider_gz_description/models/cappadocia</uri>
+            <uri>package://cappa_gz/models/cappadocia</uri>
           </include>
         </model>
 
         <include>
           <uri>file://robot_husky.sdf</uri>
           <name>husky</name>
-          <pose>0 0 1 0 0 0</pose>
+          <!--pose>0 0 1 0 0 0</pose-->
+          <pose>93.03 -58.29 54.0 0.0 0.0 3.14</pose>
         </include>
 
         <gravity>0 0 -9.8</gravity>
