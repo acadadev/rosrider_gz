@@ -21,11 +21,18 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
             launch_arguments={
-                'gz_args': f'{os.path.join(pkg_project_gazebo, "worlds", "world_cappa.sdf")}'
+                'gz_args': f'-r {os.path.join(pkg_project_gazebo, "worlds", "world_cappa.sdf")}'
         }.items(),
     )
 
-    bridge = Node(
+    rviz = Node(
+       package='rviz2',
+       executable='rviz2',
+       arguments=['-d', os.path.join(pkg_project_bringup, 'config', 'simulation_singular.rviz')],
+       condition=IfCondition(LaunchConfiguration('launch_rviz'))
+    )
+
+    bridge_husky = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
         parameters=[{
@@ -35,7 +42,40 @@ def generate_launch_description():
         output='screen'
     )
 
+    ekf_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[
+                    {os.path.join(pkg_project_bringup, 'config', 'ekf_husky_gazebo.yaml')},
+                    {'use_sim_time': True }
+                   ]
+    )
+
+    ''' TODO: values x,y,z are incorrect '''
+    front_lidar_static_transform = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='front_lidar_static_transform',
+        parameters=[{'use_sim_time': True}],
+        arguments=[
+            '--x', '0.505',
+            '--y', '0.2',
+            '--z', '0.17',
+            '--roll', '0',
+            '--pitch', '0',
+            '--yaw', '0',
+            '--frame-id', 'base_link',
+            '--child-frame-id', 'front_lidar'
+        ]
+    )
+
     return LaunchDescription([
         gz_sim,
-        bridge
+        DeclareLaunchArgument('launch_rviz', default_value='true', description='Open RVIZ'),
+        bridge_husky,
+        ekf_node,
+        rviz,
+        front_lidar_static_transform
     ])

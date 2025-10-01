@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.9">
-    <world name="world_moon">
+    <world name="default">
 
         <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
         <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
@@ -148,10 +148,10 @@
         <include>
           <uri>file://robot_explorer_r2.sdf</uri>
           <name>explorer_r2</name>
-          <pose>0 3 7 0 0 0</pose>
+          <pose>-1 0 7 0 0 0</pose>
         </include>
 
-        <gravity>0 0 -1.62</gravity>
+        <gravity>0 0 -1.625</gravity>
         <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
         <atmosphere type="adiabatic"/>
 

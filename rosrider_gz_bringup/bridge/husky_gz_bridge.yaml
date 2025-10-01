@@ -12,7 +12,7 @@
   direction: GZ_TO_ROS
 
 - ros_topic_name: "/odom"
-  gz_topic_name: "/model/husky/odometry"
+  gz_topic_name: "/model/husky/encoder_odometry"
   ros_type_name: "nav_msgs/msg/Odometry"
   gz_type_name: "gz.msgs.Odometry"
   direction: GZ_TO_ROS
@@ -29,17 +29,9 @@
   gz_type_name: "gz.msgs.Model"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "/tf"
-  gz_topic_name: "/model/husky/pose"
-  ros_type_name: "tf2_msgs/msg/TFMessage"
-  gz_type_name: "gz.msgs.Pose_V"
-  direction: GZ_TO_ROS
+# notice: we do not use /tf as the ekf node will publish based on /odom and /imu/data
 
-- ros_topic_name: "/tf_static"
-  gz_topic_name: "/model/husky/pose_static"
-  ros_type_name: "tf2_msgs/msg/TFMessage"
-  gz_type_name: "gz.msgs.Pose_V"
-  direction: GZ_TO_ROS
+# notice: we do not use /tf_static as all tf data will be published by robot_state_publisher
 
 - ros_topic_name: "/imu/data"
   gz_topic_name: "/imu"

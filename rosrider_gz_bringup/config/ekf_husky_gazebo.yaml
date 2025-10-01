@@ -49,7 +49,6 @@ ekf_filter_node:
         imu0_twist_rejection_threshold: 6.283185  # 2 PI
         imu0_linear_acceleration_rejection_threshold: 9.81 # 1G
 
-        gravitational_acceleration: 1.625 # notice: this was added here, so we could work on moon
         imu0_remove_gravitational_acceleration: true
 
         use_control: true

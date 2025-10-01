@@ -53,10 +53,30 @@ def generate_launch_description():
                    ]
     )
 
+    front_laser_static_transform = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='front_laser_static_transform',
+        parameters=[{'use_sim_time': True}],
+        arguments=[
+            '--x', '0.35',
+            '--y', '0',
+            '--z', '0.55',
+            '--roll', '0',
+            '--pitch', '0',
+            '--yaw', '0',
+            '--frame-id', 'base_link',
+            '--child-frame-id', 'front_laser'
+        ]
+    )
+
+
     return LaunchDescription([
         gz_sim,
         DeclareLaunchArgument('launch_rviz', default_value='true', description='Open RVIZ'),
         bridge_explorer_r2,
         ekf_node,
-        rviz
+        rviz,
+        front_laser_static_transform
     ])
+
