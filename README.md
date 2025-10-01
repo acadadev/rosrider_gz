@@ -9,7 +9,7 @@
 * `rosrider_gz_application` - holds ros2 specific code and configurations.
 
 * `rosrider_gz_bringup` - holds launch files and high level utilities.
-* 
+
 ## Simulation Environments with rosrider_gz_gazebo
 
 ### 1. Absolute Odometry and TF (world_empty)
