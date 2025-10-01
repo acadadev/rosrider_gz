@@ -95,7 +95,6 @@ endif()
 ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.dsv.in")
 ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.sh.in")
 
-
 # Following directive configures ament based on the previous directives, and should
 # typically be the last directive in the CMakeLists.txt file.
 ament_package()

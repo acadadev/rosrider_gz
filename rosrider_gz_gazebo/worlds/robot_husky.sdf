@@ -4,7 +4,7 @@
       <self_collide>false</self_collide>
 
       <include merge="true">
-        <uri>package://cappa_gz/models/CTU_CRAS_NORLAB_HUSKY_SENSOR_CONFIG_1</uri>
+        <uri>package://subt_gz/models/CTU_CRAS_NORLAB_HUSKY_SENSOR_CONFIG_1</uri>
       </include>
 
       <plugin

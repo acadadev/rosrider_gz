@@ -4,7 +4,7 @@
       <self_collide>false</self_collide>
 
       <include merge="true">
-        <uri>package://cappa_gz/models/csiro_data61_dtr_sensor_config_1</uri>
+        <uri>package://subt_gz/models/csiro_data61_dtr_sensor_config_1</uri>
       </include>
 
       <plugin name="gz::sim::systems::TrackedVehicle" filename="gz-sim-tracked-vehicle-system">

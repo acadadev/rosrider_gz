@@ -5,7 +5,7 @@
       <pose>0 -3 1 0 0 0</pose>
 
       <include merge="true">
-        <uri>package://cappa_gz/models/Robotika_Kloubak_Sensor_Config_1</uri>
+        <uri>package://subt_gz/models/Robotika_Kloubak_Sensor_Config_1</uri>
       </include>
 
       <plugin

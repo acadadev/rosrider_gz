@@ -4,7 +4,7 @@
       <self_collide>false</self_collide>
 
       <include merge="true">
-        <uri>package://cappa_gz/models/EXPLORER_R2_SENSOR_CONFIG_1</uri>
+        <uri>package://subt_gz/models/EXPLORER_R2_SENSOR_CONFIG_1</uri>
       </include>
 
       <plugin filename="ignition-gazebo-diff-drive-system" name="ignition::gazebo::systems::DiffDrive">
