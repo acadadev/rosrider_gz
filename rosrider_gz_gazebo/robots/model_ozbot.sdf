@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+    <model name="ozbot">
+      <self_collide>false</self_collide>
+
+      <include merge="true">
+        <uri>package://cappa_gz/models/CSIRO_DATA61_OZBOT_ATR_SENSOR_CONFIG_1</uri>
+      </include>
+
+      <plugin name="gz::sim::systems::TrackedVehicle" filename="gz-sim-tracked-vehicle-system">
+        <left_track><link>left_track</link></left_track>
+        <right_track><link>right_track</link></right_track>
+        <tracks_separation>0.538</tracks_separation>
+        <tracks_height>0.178</tracks_height>
+        <steering_efficiency>0.5</steering_efficiency>
+        <debug>0</debug>
+      </plugin>
+
+      <plugin
+        filename="gz-sim-joint-state-publisher-system"
+        name="gz::sim::systems::JointStatePublisher">
+      </plugin>
+
+      <plugin
+        filename="gz-sim-pose-publisher-system"
+        name="gz::sim::systems::PosePublisher">
+        <publish_link_pose>true</publish_link_pose>
+        <use_pose_vector_msg>true</use_pose_vector_msg>
+        <static_publisher>true</static_publisher>
+        <static_update_frequency>1</static_update_frequency>
+      </plugin>
+
+      <plugin
+        filename="gz-sim-odometry-publisher-system"
+        name="gz::sim::systems::OdometryPublisher">
+        <odom_frame>ozbot/odom</odom_frame>
+        <robot_base_frame>ozbot</robot_base_frame>
+      </plugin>
+
+    </model>
+</sdf>

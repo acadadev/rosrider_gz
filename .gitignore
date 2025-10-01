@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+
+rosrider_gz_description/models/cappadocia/meshes/muze1M.dae

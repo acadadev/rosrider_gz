@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="cappadocia">
+    <pose>-80 -50 -1172.0 0 0 0</pose>
+    <link name="cappadocia_link">
+      <collision name="cappadocia_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/muze1M.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="cappadocia_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/muze1M.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

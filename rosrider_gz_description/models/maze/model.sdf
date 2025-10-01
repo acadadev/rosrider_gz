@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="maze">
+    <static>true</static>
+    <pose>-10 -10 -0.01 0 0 0</pose>
+    <link name="maze_link">
+      <collision name="maze_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/maze_walls.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="maze_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/maze_walls.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.96 0.87 0.70 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
+<!-- TODO: create dae and stl file from sketchup. assign custom colors. -->

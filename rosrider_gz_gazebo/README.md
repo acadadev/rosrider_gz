@@ -1,39 +1,60 @@
-# rosrider_gz_gazebo
+## Simulation Environments with rosrider_gz_gazebo
 
-This subfolder holds example source files and a corresponding `CMakeLists.txt` file, as a starting point for compiling Gazebo implementations in a personal repository (i.e. not part of the official Gazebo source repositories).
+### 1. Absolute Odometry and TF (world_empty)
 
-The provided `CMakeLists.txt` file contains the directives to compile two example Gazebo systems: `BasicSystem` and `FullSystem`.
+This environment uses an **empty world** where **odometry** and the **`tf` (transform)** data are derived directly from the **Gazebo (gz sim) world**. This means the robot's pose is **absolute** and perfectly accurate relative to the simulation origin.
 
-For more information on Gazebo Sim systems, see following [Gazebo Sim tutorials](https://gazebosim.org/api/sim/7/tutorials.html):
-
-- [Create System Plugins](https://gazebosim.org/api/sim/7/createsystemplugins.html)
-- [Migration from Gazebo Classic: Plugins](https://gazebosim.org/api/sim/7/migrationplugins.html)
-
-
-## `BasicSystem` and `FullSystem`
-
-`BasicSystem` is an example system that implements only the `ISystemPostUpdate` interface:
-
-```c++
- class BasicSystem:
-    public gz::sim::System,
-    public gz::sim::ISystemPostUpdate
+```
+ros2 launch rosrider_gz_bringup world_empty.launch.py launch_rviz:=True
 ```
 
-`FullSystem` is an example system that implements all of the system interfaces:
+---
 
-```c++
-class FullSystem:
-    public gz::sim::System,
-    public gz::sim::ISystemConfigure,
-    public gz::sim::ISystemPreUpdate,
-    public gz::sim::ISystemUpdate,
-    public gz::sim::ISystemPostUpdate,
-    public gz::sim::ISystemReset
+### 2. EKF with Slippery Conditions (world_ekf)
+
+This setup simulates a **slippery world** and relies on an **Extended Kalman Filter (EKF)** for pose estimation. It **only uses the `/odom` topic** from the simulation; the simulation **does not** broadcast `/tf` data. The EKF node actively **listens to `/odom` and `/imu/data`** to calculate and **broadcast the necessary `/tf`** (transform) information.
+
+```
+ros2 launch rosrider_gz_bringup world_ekf.launch.py launch_rviz:=True
 ```
 
-See the comments in the source files for further documentation.
+---
 
-## `CMakeLists.txt`
+### 3. Maze Simulation (Absolute Odometry) (world_maze)
 
-The provided `CMakeLists.txt` file contains comments that clarify the different sections and commands, and how to apply these to your project.
+A simulation featuring a **maze environment**. Like the `empty` world, it uses the **absolute coordinates** from the Gazebo world to generate the robot's **odometry and `tf`**, simplifying navigation and localization tasks.
+
+```
+ros2 launch rosrider_gz_bringup world_maze.launch.py launch_rviz:=True
+```
+
+---
+
+### 4. Willow Mini World (world_willow)
+
+This is a **simplified version of the Willow world**, specifically scaled and configured for **small robots**.
+The ground is slippery, and the robot relies solely on encoder odometry and encoder pose for its localization, without using an EKF filter.
+
+```
+ros2 launch rosrider_gz_bringup world_willow.launch.py launch_rviz:=True
+```
+
+---
+
+### 5. Moon Simulation with Explorer R2 (world_moon)
+
+Experience a simulation of a **Moon environment** featuring the **Explorer R2 Robot**. 🚀
+
+```
+ros2 launch rosrider_gz_bringup world_moon.launch.py launch_rviz:=True
+```
+
+---
+
+### 6. Cappadocia Simulation with Husky (world_cappa)
+
+Explore a **Cappadocia-themed world** with the **Husky Robot**.
+
+```
+ros2 launch rosrider_gz_bringup world_cappa.launch.py launch_rviz:=True
+```

@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+    <world name="default">
+
+        <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+        <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+          <render_engine>ogre2</render_engine>
+        </plugin>
+
+        <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/>
+        <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+        <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+            <real_time_update_rate>1000</real_time_update_rate>
+        </physics>
+
+        <light name="sun" type="directional">
+            <cast_shadows>1</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+            <attenuation>
+                <range>1000</range>
+                <constant>0.9</constant>
+                <linear>0.01</linear>
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+        <model name="ground_plane">
+          <pose>0 0 0 0 -0 0</pose>
+          <static>1</static>
+          <link name="link">
+            <collision name="ground_plane_collision">
+              <geometry>
+                <plane>
+                  <normal>0 0 1</normal>
+                  <size>20 20</size>
+                </plane>
+              </geometry>
+              <surface>
+                <contact>
+                  <collide_bitmask>65535</collide_bitmask>
+                  <ode/>
+                </contact>
+                <friction>
+                  <ode>
+                    <mu>0.7</mu>
+                    <mu2>150</mu2>
+                  </ode>
+                  <torsional>
+                    <ode/>
+                  </torsional>
+                </friction>
+                <bounce/>
+              </surface>
+              <max_contacts>512</max_contacts>
+            </collision>
+            <self_collide>0</self_collide>
+            <enable_wind>0</enable_wind>
+            <kinematic>0</kinematic>
+          </link>
+        </model>
+
+        <scene>
+            <ambient>1 1 1 1</ambient>
+            <background>0.8 0.8 0.8 1</background>
+            <shadows>1</shadows>
+        </scene>
+
+        <include>
+          <uri>file://robot_next_singular.sdf</uri>
+          <name>next</name>
+          <pose>0 0 0.05 0 0 0</pose>
+        </include>
+
+        <gravity>0 0 -9.8</gravity>
+        <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+        <atmosphere type="adiabatic"/>
+
+    </world>
+</sdf>

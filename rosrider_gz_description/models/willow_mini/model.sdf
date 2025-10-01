@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="willow_mini">
+    <pose>-3 -9 0 0 0 0</pose>
+    <link name="willow_mini_link">
+
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/willow_mini.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/willow_mini.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

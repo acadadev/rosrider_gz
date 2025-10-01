@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+    <world name="default">
+
+        <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+        <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+          <render_engine>ogre2</render_engine>
+        </plugin>
+
+        <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/>
+        <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+        <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+            <real_time_update_rate>1000</real_time_update_rate>
+            <dart>
+                <collision_detector>bullet</collision_detector>
+            </dart>
+        </physics>
+
+        <light name="sun" type="directional">
+            <cast_shadows>1</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+            <attenuation>
+                <range>1000</range>
+                <constant>0.9</constant>
+                <linear>0.01</linear>
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+        <scene>
+            <ambient>1 1 1 1</ambient>
+            <background>0.8 0.8 0.8 1</background>
+            <shadows>1</shadows>
+            <grid>false</grid>
+        </scene>
+
+        <model name="cappadocia">
+          <pose>0 0 0 0 0 0</pose>
+          <static>true</static>
+          <include merge="true">
+            <uri>package://rosrider_gz_description/models/cappadocia</uri>
+          </include>
+        </model>
+
+        <include>
+          <uri>file://robot_husky.sdf</uri>
+          <name>husky</name>
+          <pose>0 0 1 0 0 0</pose>
+        </include>
+
+        <gravity>0 0 -9.8</gravity>
+        <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+        <atmosphere type="adiabatic"/>
+
+  </world>
+</sdf>
