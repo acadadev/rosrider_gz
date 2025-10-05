@@ -90,6 +90,6 @@ ros2 launch rosrider_gz_bringup world_cappa.launch.py launch_rviz:=True
 ```
 
 ---
-#### ACADA Robotics - [https://acada.dev](https://acada.dev)  
+#### ACADA Robotics ● [https://acada.dev](https://acada.dev)  
 ![ACADA Robotics](https://docs.acada.dev/rosrider_doc/images/logo.svg)
 
