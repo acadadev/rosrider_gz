@@ -1,16 +1,15 @@
-# ROSRider Gazebo Packages
+# 🎮 Simulation Packages
 
-* `rosrider_gz_description` - holds the sdf description of the simulated system and any other assets.
+| Package                                                                                              | Description                                                      |
+|------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| [rosrider_gz_bringup](https://github.com/acadadev/rosrider_gz/tree/main/rosrider_gz_bringup)         | Launch files and high level utilities                            |
+| [rosrider_gz_description](https://github.com/acadadev/rosrider_gz/tree/main/rosrider_gz_description) | The SDF description of the simulated system and any other assets |
+| [rosrider_gz_gazebo](https://github.com/acadadev/rosrider_gz/tree/main/rosrider_gz_gazebo)           | Gazebo specific code and configurations                          |
+| [rosrider_gz_application](https://github.com/acadadev/rosrider/tree/main/rosrider_gz_application)    | ROS specific code and configurations                             |
 
-* `rosrider_gz_gazebo` - holds gazebo specific code and configurations. Namely this is where systems end up.
+The `rosrider_gz` packages provide the following **simulation environments:**
 
-* `rosrider_gz_application` - holds ros2 specific code and configurations.
-
-* `rosrider_gz_bringup` - holds launch files and high level utilities.
-
-## Simulation Environments with rosrider_gz_gazebo
-
-### 1. Absolute Odometry and TF (world_empty)
+### 📏 Absolute Odometry and TF (world_empty)
 
 This environment uses an **empty world** where **odometry** and the **`tf` (transform)** data are derived directly from the **Gazebo (gz sim) world**. This means the robot's pose is **absolute** and perfectly accurate relative to the simulation origin.
 
@@ -18,7 +17,7 @@ This environment uses an **empty world** where **odometry** and the **`tf` (tran
 ros2 launch rosrider_gz_bringup world_empty.launch.py launch_rviz:=True
 ```
 
-### 2. EKF with Slippery Conditions (world_ekf)
+### 🌀 EKF with Slippery Conditions (world_ekf)
 
 This setup simulates a **slippery world** and relies on an **Extended Kalman Filter (EKF)** for pose estimation.
 It **only uses the `/odom` topic** from the simulation; the simulation **does not** broadcast `/tf` data.
@@ -28,7 +27,7 @@ The EKF node actively **listens to `/odom` and `/imu/data`** to calculate and **
 ros2 launch rosrider_gz_bringup world_ekf.launch.py launch_rviz:=True
 ```
 
-### 3. Maze Simulation (Absolute Odometry) (world_maze)
+### 🔳 Maze Simulation (Absolute Odometry) (world_maze)
 
 A simulation featuring a **maze environment**. Like the `empty` world, it uses the **absolute coordinates** from the Gazebo world to generate the robot's **odometry and `tf`**, simplifying navigation and localization tasks.
 
@@ -36,7 +35,7 @@ A simulation featuring a **maze environment**. Like the `empty` world, it uses t
 ros2 launch rosrider_gz_bringup world_maze.launch.py launch_rviz:=True
 ```
 
-### 4. Willow Mini World (world_willow)
+### 🏢 Willow Mini World (world_willow)
 
 This is a **simplified version of the Willow world**, specifically scaled and configured for **small robots**.
 The ground is slippery, and the robot relies solely on encoder odometry and encoder pose for its localization, without using an EKF filter.
@@ -45,7 +44,7 @@ The ground is slippery, and the robot relies solely on encoder odometry and enco
 ros2 launch rosrider_gz_bringup world_willow.launch.py launch_rviz:=True
 ```
 
-### 5. Willow Mini World with EKF (world_willow_ekf)
+### 🌀 Willow Mini World with EKF (world_willow_ekf)
 
 This is a **simplified version of the Willow world**, specifically scaled and configured for **small robots**.  
 
@@ -59,7 +58,7 @@ significantly improving localization accuracy over the simple odometry alone.
 ros2 launch rosrider_gz_bringup world_willow_ekf.launch.py launch_rviz:=True
 ```
 
-### 6. Moon Simulation with Explorer R2 (world_moon)
+### 🌕 Moon Simulation with Explorer R2 (world_moon)
 
 Experience a simulation of a **Moon environment** featuring the **Explorer R2 Robot**. 🚀
 
@@ -67,7 +66,7 @@ Experience a simulation of a **Moon environment** featuring the **Explorer R2 Ro
 ros2 launch rosrider_gz_bringup world_moon.launch.py launch_rviz:=True
 ```
 
-### 7. Cappadocia Simulation with Husky (world_cappa)
+### ⛰️ Cappadocia Simulation with Husky (world_cappa)
 
 Explore a **Cappadocia-themed world** with the **Husky Robot**.
 
