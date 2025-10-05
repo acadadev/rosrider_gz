@@ -44,6 +44,8 @@ The ground is slippery, and the robot relies solely on encoder odometry and enco
 ros2 launch rosrider_gz_bringup world_willow.launch.py launch_rviz:=True
 ```
 
+![Gazebo Simulation Willow World](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_willow_world.png)
+
 ### 🌀 Willow Mini World with EKF (world_willow_ekf)
 
 This is a **simplified version of the Willow world**, specifically scaled and configured for **small robots**.  
