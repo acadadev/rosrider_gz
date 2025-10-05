@@ -68,7 +68,6 @@
             <shadows>1</shadows>
         </scene>
 
-
         <include>
           <uri>file://robot_next_singular.sdf</uri>
           <name>next</name>

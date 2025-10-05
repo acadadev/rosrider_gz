@@ -5,7 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
-from launch.conditions import IfCondition
+from launch.conditions import IfCondition, UnlessCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
@@ -16,6 +16,8 @@ def generate_launch_description():
     pkg_project_bringup = get_package_share_directory('rosrider_gz_bringup')
     pkg_project_gazebo = get_package_share_directory('rosrider_gz_gazebo')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
+
+    use_ukf = LaunchConfiguration('use_ukf', default='false')
 
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -42,27 +44,40 @@ def generate_launch_description():
         output='screen'
     )
 
+    ukf_node = Node(
+        package='robot_localization',
+        executable='ukf_node',
+        name='ukf_filter_node',
+        output='screen',
+        parameters=[
+                    {os.path.join(pkg_project_bringup, 'config', 'ukf_gazebo.yaml')},
+                    {'use_sim_time': True }
+                   ],
+        condition=IfCondition(use_ukf)
+    )
+
     ekf_node = Node(
         package='robot_localization',
         executable='ekf_node',
         name='ekf_filter_node',
         output='screen',
         parameters=[
-                    {os.path.join(pkg_project_bringup, 'config', 'ekf_husky_gazebo.yaml')},
+                    {os.path.join(pkg_project_bringup, 'config', 'ekf_gazebo.yaml')},
                     {'use_sim_time': True }
-                   ]
+                   ],
+        condition=UnlessCondition(use_ukf)
     )
 
-    ''' TODO: values x,y,z are incorrect '''
+    # TODO: need the actual x y z values for husky
     front_lidar_static_transform = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='front_lidar_static_transform',
         parameters=[{'use_sim_time': True}],
         arguments=[
-            '--x', '0.505',
-            '--y', '0.2',
-            '--z', '0.17',
+            '--x', '0',
+            '--y', '0',
+            '--z', '0.5',
             '--roll', '0',
             '--pitch', '0',
             '--yaw', '0',
@@ -74,7 +89,9 @@ def generate_launch_description():
     return LaunchDescription([
         gz_sim,
         DeclareLaunchArgument('launch_rviz', default_value='true', description='Open RVIZ'),
+        DeclareLaunchArgument('use_ukf', default_value='false', description='Use UKF instead of EKF'),
         bridge_husky,
+        ukf_node,
         ekf_node,
         rviz,
         front_lidar_static_transform

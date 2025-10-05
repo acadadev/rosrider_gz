@@ -2,7 +2,7 @@
 <sdf version="1.8">
   <model name="maze">
     <static>true</static>
-    <pose>-10 -10 -0.01 0 0 0</pose>
+    <pose>-10 -10 0.0 0 0 0</pose>
     <link name="maze_link">
       <collision name="maze_collision">
         <pose>0 0 0 0 0 0</pose>
@@ -28,4 +28,3 @@
     </link>
   </model>
 </sdf>
-<!-- TODO: create dae and stl file from sketchup. assign custom colors. -->

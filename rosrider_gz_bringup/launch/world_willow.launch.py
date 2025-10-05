@@ -5,7 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
-from launch.conditions import IfCondition
+from launch.conditions import IfCondition, UnlessCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
@@ -57,23 +57,6 @@ def generate_launch_description():
             'qos_overrides./tf_static.publisher.durability': 'transient_local'
         }],
         output='screen'
-    )
-
-    lidar_static_transform = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='lidar_static_transform',
-        parameters=[{'use_sim_time': True}],
-        arguments=[
-            '--x', '-0.1692',
-            '--y', '0',
-            '--z', '0.06125',
-            '--roll', '0',
-            '--pitch', '0',
-            '--yaw', '0',
-            '--frame-id', 'base_link',
-            '--child-frame-id', 'base_scan'
-        ]
     )
 
     return LaunchDescription([
