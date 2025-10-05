@@ -5,7 +5,7 @@
 | [rosrider_gz_bringup](https://github.com/acadadev/rosrider_gz/tree/main/rosrider_gz_bringup)         | Launch files and high level utilities                            |
 | [rosrider_gz_description](https://github.com/acadadev/rosrider_gz/tree/main/rosrider_gz_description) | The SDF description of the simulated system and any other assets |
 | [rosrider_gz_gazebo](https://github.com/acadadev/rosrider_gz/tree/main/rosrider_gz_gazebo)           | Gazebo specific code and configurations                          |
-| [rosrider_gz_application](https://github.com/acadadev/rosrider/tree/main/rosrider_gz_application)    | ROS specific code and configurations                             |
+| [rosrider_gz_app](https://github.com/acadadev/rosrider/tree/main/rosrider_gz_app)                    | ROS specific code and configurations                             |
 
 The `rosrider_gz` packages provide the following **simulation environments:**
 
