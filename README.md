@@ -17,6 +17,8 @@ This environment uses an **empty world** where **odometry** and the **`tf` (tran
 ros2 launch rosrider_gz_bringup world_empty.launch.py launch_rviz:=True
 ```
 
+![Gazebo Simulation with Absolute Odometry](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_empty_world.png)
+
 ### 🌀 EKF with Slippery Conditions (world_ekf)
 
 This setup simulates a **slippery world** and relies on an **Extended Kalman Filter (EKF)** for pose estimation.
@@ -34,6 +36,9 @@ A simulation featuring a **maze environment**. Like the `empty` world, it uses t
 ```
 ros2 launch rosrider_gz_bringup world_maze.launch.py launch_rviz:=True
 ```
+
+![Gazebo Maze Simulation](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_maze_world.png)
+
 
 ### 🏢 Willow Mini World (world_willow)
 
@@ -68,6 +73,8 @@ Experience a simulation of a **Moon environment** featuring the **Explorer R2 Ro
 ros2 launch rosrider_gz_bringup world_moon.launch.py launch_rviz:=True
 ```
 
+![Gazebo Simulation Moon Rover](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_moon_world.png)
+
 ### ⛰️ Cappadocia Simulation with Husky (world_cappa)
 
 Explore a **Cappadocia-themed world** with the **Husky Robot**.
@@ -75,6 +82,8 @@ Explore a **Cappadocia-themed world** with the **Husky Robot**.
 ```
 ros2 launch rosrider_gz_bringup world_cappa.launch.py launch_rviz:=True
 ```
+
+![Gazebo Simulation Cappadocia](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_cappa_world.png)
 
 ### 📖 Documentation
 
