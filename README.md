@@ -1,4 +1,4 @@
-# rosrider_gz
+# ROSRider Gazebo Packages
 
 ## Included packages
 
