@@ -1,7 +1,5 @@
 # ROSRider Gazebo Packages
 
-## Included packages
-
 * `rosrider_gz_description` - holds the sdf description of the simulated system and any other assets.
 
 * `rosrider_gz_gazebo` - holds gazebo specific code and configurations. Namely this is where systems end up.
