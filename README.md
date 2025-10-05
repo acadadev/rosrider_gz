@@ -29,6 +29,8 @@ The EKF node actively **listens to `/odom` and `/imu/data`** to calculate and **
 ros2 launch rosrider_gz_bringup world_ekf.launch.py launch_rviz:=True
 ```
 
+![EKF odometry visualization](https://docs.acada.dev/rosrider_doc/images/rosrider/rviz_ekf_odometry.png)
+
 ### 🔳 Maze Simulation (Absolute Odometry) (world_maze)
 
 A simulation featuring a **maze environment**. Like the `empty` world, it uses the **absolute coordinates** from the Gazebo world to generate the robot's **odometry and `tf`**, simplifying navigation and localization tasks.
@@ -64,6 +66,9 @@ significantly improving localization accuracy over the simple odometry alone.
 ```
 ros2 launch rosrider_gz_bringup world_willow_ekf.launch.py launch_rviz:=True
 ```
+
+![Navigating Willow WWorld with EKF](https://docs.acada.dev/rosrider_doc/images/rosrider/nav_local_global_map.png)
+
 
 ### 🌕 Moon Simulation with Explorer R2 (world_moon)
 
