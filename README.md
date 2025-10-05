@@ -18,8 +18,6 @@ This environment uses an **empty world** where **odometry** and the **`tf` (tran
 ros2 launch rosrider_gz_bringup world_empty.launch.py launch_rviz:=True
 ```
 
----
-
 ### 2. EKF with Slippery Conditions (world_ekf)
 
 This setup simulates a **slippery world** and relies on an **Extended Kalman Filter (EKF)** for pose estimation.
@@ -30,8 +28,6 @@ The EKF node actively **listens to `/odom` and `/imu/data`** to calculate and **
 ros2 launch rosrider_gz_bringup world_ekf.launch.py launch_rviz:=True
 ```
 
----
-
 ### 3. Maze Simulation (Absolute Odometry) (world_maze)
 
 A simulation featuring a **maze environment**. Like the `empty` world, it uses the **absolute coordinates** from the Gazebo world to generate the robot's **odometry and `tf`**, simplifying navigation and localization tasks.
@@ -39,8 +35,6 @@ A simulation featuring a **maze environment**. Like the `empty` world, it uses t
 ```
 ros2 launch rosrider_gz_bringup world_maze.launch.py launch_rviz:=True
 ```
-
----
 
 ### 4. Willow Mini World (world_willow)
 
@@ -50,8 +44,6 @@ The ground is slippery, and the robot relies solely on encoder odometry and enco
 ```
 ros2 launch rosrider_gz_bringup world_willow.launch.py launch_rviz:=True
 ```
-
----
 
 ### 5. Willow Mini World with EKF (world_willow_ekf)
 
@@ -67,8 +59,6 @@ significantly improving localization accuracy over the simple odometry alone.
 ros2 launch rosrider_gz_bringup world_willow_ekf.launch.py launch_rviz:=True
 ```
 
----
-
 ### 6. Moon Simulation with Explorer R2 (world_moon)
 
 Experience a simulation of a **Moon environment** featuring the **Explorer R2 Robot**. 🚀
@@ -76,8 +66,6 @@ Experience a simulation of a **Moon environment** featuring the **Explorer R2 Ro
 ```
 ros2 launch rosrider_gz_bringup world_moon.launch.py launch_rviz:=True
 ```
-
----
 
 ### 7. Cappadocia Simulation with Husky (world_cappa)
 
