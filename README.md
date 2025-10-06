@@ -9,7 +9,7 @@
 
 The `rosrider_gz` packages provide the following **simulation environments:**
 
-### 📏 Absolute Odometry and TF (world_empty)
+### 📏 Absolute Odometry and TF
 
 This environment uses an **empty world** where **odometry** and the **`tf` (transform)** data are derived directly from the **Gazebo (gz sim) world**. This means the robot's pose is **absolute** and perfectly accurate relative to the simulation origin.
 
@@ -19,7 +19,7 @@ ros2 launch rosrider_gz_bringup world_empty.launch.py launch_rviz:=True
 
 ![Gazebo Simulation with Absolute Odometry](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_empty_world_simulation.png)
 
-### 🌀 EKF with Slippery Conditions (world_ekf)
+### 🌀 EKF with Slippery Conditions
 
 This setup simulates a **slippery world** and relies on an **Extended Kalman Filter (EKF)** for pose estimation.
 It **only uses the `/odom` topic** from the simulation; the simulation **does not** broadcast `/tf` data.
@@ -31,7 +31,7 @@ ros2 launch rosrider_gz_bringup world_ekf.launch.py launch_rviz:=True
 
 ![EKF odometry visualization](https://docs.acada.dev/rosrider_doc/images/rosrider/rviz_odometry_ekf.png)
 
-### 🔳 Maze Simulation (Absolute Odometry) (world_maze)
+### 🔳 Maze Simulation
 
 A simulation featuring a **maze environment**. Like the `empty` world, it uses the **absolute coordinates** from the Gazebo world to generate the robot's **odometry and `tf`**, simplifying navigation and localization tasks.
 
@@ -42,7 +42,7 @@ ros2 launch rosrider_gz_bringup world_maze.launch.py launch_rviz:=True
 ![Gazebo Maze Simulation](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_maze_simulation.png)
 
 
-### 🏢 Willow Mini World (world_willow)
+### 🏢 Willow World
 
 This is a **simplified version of the Willow world**, specifically scaled and configured for **small robots**.
 The ground is slippery, and the robot relies solely on encoder odometry and encoder pose for its localization, without using an EKF filter.
@@ -53,7 +53,7 @@ ros2 launch rosrider_gz_bringup world_willow.launch.py launch_rviz:=True
 
 ![Gazebo Simulation Willow World](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_willow_world_simulation.png)
 
-### 🌀 Willow Mini World with EKF (world_willow_ekf)
+### 🌀 Willow World with EKF
 
 This is a **simplified version of the Willow world**, specifically scaled and configured for **small robots**.  
 
@@ -70,7 +70,7 @@ ros2 launch rosrider_gz_bringup world_willow_ekf.launch.py launch_rviz:=True
 ![Navigating Willow WWorld with EKF](https://docs.acada.dev/rosrider_doc/images/rosrider/nav_local_global_map.png)
 
 
-### 🌕 Moon Simulation with Explorer R2 (world_moon)
+### 🌕 Moon Simulation with Explorer R2
 
 Experience a simulation of a **Moon environment** featuring the **Explorer R2 Robot**. 🚀
 
@@ -80,7 +80,7 @@ ros2 launch rosrider_gz_bringup world_moon.launch.py launch_rviz:=True
 
 ![Gazebo Simulation Moon Rover](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_moon_simulation.png)
 
-### ⛰️ Cappadocia Simulation with Husky (world_cappa)
+### ⛰️ Cappadocia Simulation with Husky
 
 Explore a **Cappadocia-themed world** with the **Husky Robot**.
 
@@ -90,7 +90,7 @@ ros2 launch rosrider_gz_bringup world_cappa.launch.py launch_rviz:=True
 
 ![Gazebo Simulation Cappadocia](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_cappadocia_simulation.png)
 
-### 📖 Documentation
+### 📖 Documentationd
 
 For complete and comprehensive guides on all aspects of the ROSRider project, please refer to the dedicated documentation site: [https://docs.acada.dev/rosrider_doc](https://docs.acada.dev/rosrider_doc)
 
