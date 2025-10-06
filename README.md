@@ -88,9 +88,9 @@ Explore a **Cappadocia-themed world** with the **Husky Robot**.
 ros2 launch rosrider_gz_bringup world_cappa.launch.py launch_rviz:=True
 ```
 
-![Gazebo Simulation Cappadocia](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_cappadocia_simulation.png)
+![Gazebo Simulation Cappadocia](https://docs.acada.dev/rosrider_doc/images/rosrider/gazebo_cappa_simulation.png)
 
-### 📖 Documentationd
+### 📖 Documentation
 
 For complete and comprehensive guides on all aspects of the ROSRider project, please refer to the dedicated documentation site: [https://docs.acada.dev/rosrider_doc](https://docs.acada.dev/rosrider_doc)
 
