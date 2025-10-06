@@ -9,6 +9,24 @@
 
 The `rosrider_gz` packages provide the following **simulation environments:**
 
+## 🛠️ Instructions Simulation Setup
+
+This guide will help you set up the **ROSRider simulation environment** on your computer.
+
+To setup the simulation environment in your computer:
+
+```commandline
+mkdir -p ~/rosrider_ws/src
+cd ~/rosrider_ws/src
+git clone https://github.com/acadadev/rosrider
+git clone https://github.com/acadadev/rosrider_gz
+git clone https://github.com/acadadev/subt_gz
+git clone https://github.com/acadadev/cappa_gz
+cd ..
+colcon build
+source install/setup.bash
+```
+
 ### 📏 Absolute Odometry and TF
 
 This environment uses an **empty world** where **odometry** and the **`tf` (transform)** data are derived directly from the **Gazebo (gz sim) world**. This means the robot's pose is **absolute** and perfectly accurate relative to the simulation origin.
