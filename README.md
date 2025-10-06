@@ -9,7 +9,7 @@
 
 ## 🛠️ Instructions for Simulation Setup
 
-This guide will help you set up the **ROSRider simulation environment.** To setup the software in your computer. enter the following commands:
+This guide will help you set up the **ROSRider simulation environment.** To setup the software in your computer, enter the following commands:
 
 ```commandline
 mkdir -p ~/rosrider_ws/src
