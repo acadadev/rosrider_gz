@@ -29,7 +29,7 @@ The EKF node actively **listens to `/odom` and `/imu/data`** to calculate and **
 ros2 launch rosrider_gz_bringup world_ekf.launch.py launch_rviz:=True
 ```
 
-![EKF odometry visualization](https://docs.acada.dev/rosrider_doc/images/rosrider/rviz_ekf_odometry.png)
+![EKF odometry visualization](https://docs.acada.dev/rosrider_doc/images/rosrider/rviz_odometry_ekf.png)
 
 ### 🔳 Maze Simulation (Absolute Odometry) (world_maze)
 
