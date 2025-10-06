@@ -11,8 +11,6 @@
 
 This guide will help you set up the **ROSRider simulation environment** on your computer.
 
-To setup the simulation environment in your computer:
-
 ```commandline
 mkdir -p ~/rosrider_ws/src
 cd ~/rosrider_ws/src
