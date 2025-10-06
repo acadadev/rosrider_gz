@@ -7,9 +7,7 @@
 | [rosrider_gz_gazebo](https://github.com/acadadev/rosrider_gz/tree/main/rosrider_gz_gazebo)           | Gazebo specific code and configurations                          |
 | [rosrider_gz_app](https://github.com/acadadev/rosrider/tree/main/rosrider_gz_app)                    | ROS specific code and configurations                             |
 
-The `rosrider_gz` packages provide the following **simulation environments:**
-
-## 🛠️ Instructions Simulation Setup
+## 🛠️ Instructions for Simulation Setup
 
 This guide will help you set up the **ROSRider simulation environment** on your computer.
 
@@ -26,6 +24,8 @@ cd ..
 colcon build
 source install/setup.bash
 ```
+
+The `rosrider_gz` packages provide the following **simulation environments:**
 
 ### 📏 Absolute Odometry and TF
 
