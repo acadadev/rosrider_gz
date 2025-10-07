@@ -13,6 +13,7 @@
   <depend>sdformat_urdf</depend>
   <depend>rosrider_gz_description</depend>
   <depend>rosrider_gz_gazebo</depend>
+
   <buildtool_depend>ament_cmake</buildtool_depend>
   <test_depend>ament_lint_auto</test_depend>
   <export>
